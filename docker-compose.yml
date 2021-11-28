@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  redirector:
+      container_name: redirector_cnt
+      image: airnh/bases:webdev
+      privileged: true
+      stdin_open: true # docker run -i
+      tty: true        # docker run -t
+      volumes:
+        - ./projects:/home/projects
+      network_mode: bridge
+      ports:
+        - "80:3000" # react app
+      # links:
+      #   - connlog_mongo
+      #   - ticket_mongo
+      #   - bus_mongo
+      #   - userinfo_mongo
